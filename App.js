@@ -6,6 +6,7 @@ import { Text, View, Linking, TouchableHighlight, PermissionsAndroid, Platform, 
 import { CameraKitCameraScreen, } from 'react-native-camera-kit';
 //import CameraKitCameraScreen we are going to use.
 export default class App extends Component {
+  
   constructor() {
     super();
     this.state = {
@@ -63,9 +64,11 @@ export default class App extends Component {
         <View style={styles.container}>
             <Text style={styles.heading}>React Native QR Code Example</Text>
             <TextInput
-      style={{ height: 40,width:200, borderColor: 'gray', borderWidth: 1 }}
-      value={this.state.qrvalue}
+               style={{ height: 40,width:200, borderColor: 'gray', borderWidth: 1 }}
+               onChangeText={text => this.setState({qrvalue: text})}
+                value={this.state.qrvalue}
     />
+        
             
             {this.state.qrvalue.includes("http") ? 
               <TouchableHighlight
